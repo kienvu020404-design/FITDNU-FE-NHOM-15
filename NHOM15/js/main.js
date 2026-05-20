@@ -14,11 +14,38 @@ const products = [
         name: "iPhone 15 Pro Max 256GB",
         price: 29500000,
         oldPrice: "34.990.000đ",
-        image: "https://img.dienthoaiviet.vn/image/product/iphone-15-pro-max.png",
+        image: "./img/15prm1.jpg",
         badge: "Mới",
         description: "Khung titan siêu nhẹ, camera zoom quang học 5x sắc nét, chip A17 Pro đỉnh cao."
-    }
-    // ... Thêm id cho các sản phẩm khác tương tự
+    },
+    {
+        id: 3,
+        name: "Xiaomi 17 Pro Max",
+        price: 21000000,
+        oldPrice: "30.000.000đ",
+        image:"./img/ximi17prm.png",
+        badge: "Mới",
+        description:"Màn hình sau độc nhất, Snapdragon 8 Elite Gen 5",
+    },
+    {
+        id: 4,
+        name: "Xiaomi 17 Pro",
+        price: 15000000,
+        oldPrice: "25.000.000đ",
+        image:"./img/ximi17pro.png",
+        badge: "Mới",
+        description:"Màn hình sau độc nhất, Snapdragon 8 Elite Gen 5",
+    },
+    {
+        id: 5,
+        name: "Samsung S26 Ultra",
+        price: 30490000,
+        oldPrice: "35.000.000đ",
+        image:"./img/S26U.jpg",
+        badge: "Mới",
+        description:"Flagship cao cấp của Samsung",
+    },
+    
 ];
 
 // 2. Sửa hàm renderProducts để gắn hàm onclick vào nút

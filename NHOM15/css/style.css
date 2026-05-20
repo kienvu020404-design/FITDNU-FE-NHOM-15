@@ -18,3 +18,11 @@ body {
     background-color: #e50000 !important;
     border-color: #e50000 !important;
 }
+/* Mở file css/style.css và thêm đoạn này xuống dưới cùng */
+
+.product-card .card-img-top {
+    height: 250px; /* Bạn có thể tăng giảm số này tùy ý (ví dụ 200px, 300px) */
+    width: 100%;
+    object-fit: contain; /* Ép ảnh vừa vặn khung, không bị méo */
+    padding: 15px; /* Tạo khoảng lùi vào cho ảnh đỡ sát viền */
+}
