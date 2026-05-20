@@ -47,7 +47,126 @@ const products = [
     },
     
 ];
+// ==========================================
+// PHẦN XỬ LÝ CHO ĐỒ ĂN NỔI BẬT
+// ==========================================
 
+// 1. Mảng dữ liệu Đồ ăn
+const foods = [
+    {
+        id: 201, // ID bắt đầu từ 201 cho đồ ăn
+        name: "Khô Gà Lá Chanh ( Loại 2 )",
+        price: 78000,
+        oldPrice: "1000.000đ",
+        image: "./img/khoga.jpg", 
+        badge: "Bán chạy",
+        description: "Khô gà bã mía MIXIFOOD tuyệt phẩm bã mía chất lượng cao, SIÊU NGON - ĐẬM ĐÀ"
+    },
+];
+
+// 2. Hàm in danh sách Đồ ăn ra giao diện
+function renderFoods(foodData) {
+    const foodContainer = document.getElementById("foodList");
+    
+    if (!foodContainer) return;
+
+    foodContainer.innerHTML = "";
+
+    for (let i = 0; i < foodData.length; i++) {
+        const item = foodData[i];
+        
+        const productHTML = `
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="card h-100 shadow-sm border-0 product-card">
+                    <span class="badge bg-danger position-absolute" style="top: 10px; right: 10px;">${item.badge}</span>
+                    <img src="${item.image}" class="card-img-top" alt="${item.name}">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h6 class="card-title fw-bold">${item.name}</h6>
+                        <div class="mt-auto">
+                            <p class="text-danger fw-bold m-0">${item.price.toLocaleString('vi-VN')}đ</p>
+                            <p class="text-muted text-decoration-line-through small">${item.oldPrice}</p>
+                            <a href="detail.html?id=${item.id}" class="btn btn-danger btn-sm w-100 mt-2">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        foodContainer.innerHTML += productHTML;
+    }
+}
+
+// 3. Gọi hàm để chạy hiển thị đồ ăn
+renderFoods(foods);
+// ==========================================
+// PHẦN XỬ LÝ CHO LAPTOP NỔI BẬT
+// ==========================================
+
+// 1. Mảng dữ liệu Laptop (Chú ý ID phải khác biệt với điện thoại để không bị trùng khi xem chi tiết)
+const laptops = [
+    {
+        id: 101, // Bắt đầu từ 101 cho laptop
+        name: "MSI Katana 15 (2416VN)",
+        price: 22500000,
+        oldPrice: "25.000.000đ",
+        image: "https://via.placeholder.com/300?text=MSI+Katana+15", 
+        badge: "Gaming",
+        description: "Laptop gaming quốc dân, hiệu năng vượt trội, hệ thống tản nhiệt tối ưu cho cày game nặng."
+    },
+    {
+        id: 102,
+        name: "MacBook Air M2 256GB",
+        price: 24990000,
+        oldPrice: "27.990.000đ",
+        image: "https://via.placeholder.com/300?text=MacBook+Air",
+        badge: "Mỏng nhẹ",
+        description: "Thiết kế sang trọng, pin cực trâu, màn hình Retina sắc nét chuẩn đồ họa."
+    },
+    {
+        id: 103,
+        name: "Lenovo ThinkPad E14 Gen 5",
+        price: 18500000,
+        oldPrice: "20.000.000đ",
+        image: "https://via.placeholder.com/300?text=ThinkPad",
+        badge: "Bền bỉ",
+        description: "Bàn phím gõ siêu êm, độ bền đạt chuẩn quân đội, phù hợp cho dân coder."
+    }
+];
+
+// 2. Hàm in danh sách Laptop ra giao diện
+function renderLaptops(laptopData) {
+    // Tìm khung chứa có id là laptopList
+    const laptopContainer = document.getElementById("laptopList");
+    
+    if (!laptopContainer) return; // Tránh lỗi nếu trang không có khung này
+
+    laptopContainer.innerHTML = "";
+
+    for (let i = 0; i < laptopData.length; i++) {
+        const item = laptopData[i];
+        
+        // Code HTML giống hệt thẻ điện thoại
+        const productHTML = `
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="card h-100 shadow-sm border-0 product-card">
+                    <span class="badge bg-danger position-absolute" style="top: 10px; right: 10px;">${item.badge}</span>
+                    <img src="${item.image}" class="card-img-top" alt="${item.name}">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h6 class="card-title fw-bold">${item.name}</h6>
+                        <div class="mt-auto">
+                            <p class="text-danger fw-bold m-0">${item.price.toLocaleString('vi-VN')}đ</p>
+                            <p class="text-muted text-decoration-line-through small">${item.oldPrice}</p>
+                            <a href="detail.html?id=${item.id}" class="btn btn-danger btn-sm w-100 mt-2">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        laptopContainer.innerHTML += productHTML;
+    }
+}
+
+// 3. Gọi hàm để chạy
+renderLaptops(laptops);
 // 2. Sửa hàm renderProducts để gắn hàm onclick vào nút
 function renderProducts(productList) {
     const productContainer = document.getElementById("productList");

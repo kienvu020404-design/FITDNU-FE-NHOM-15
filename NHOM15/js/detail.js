@@ -43,28 +43,79 @@ const products = [
     },
 ];
 
-// 2. Kỹ thuật lấy ID từ thanh URL (Ví dụ: detail.html?id=1)
-const urlParams = new URLSearchParams(window.location.search);
-const productId = parseInt(urlParams.get('id')); // Chuyển chuỗi '1' thành số 1
+// Danh sách Laptop (ID: 101, 102...)
+const laptops = [
+    {
+        id: 101,
+        name: "MSI Katana 15 (2416VN)",
+        price: 22500000,
+        oldPrice: "25.000.000đ",
+        image: "https://via.placeholder.com/300?text=MSI+Katana+15", 
+        badge: "Gaming",
+        description: "Laptop gaming quốc dân, hiệu năng vượt trội, hệ thống tản nhiệt tối ưu cho cày game nặng."
+    },
+    {
+        id: 102,
+        name: "MacBook Air M2 256GB",
+        price: 24990000,
+        oldPrice: "27.990.000đ",
+        image: "https://via.placeholder.com/300?text=MacBook+Air",
+        badge: "Mỏng nhẹ",
+        description: "Thiết kế sang trọng, pin cực trâu, màn hình Retina sắc nét chuẩn đồ họa."
+    },
+    {
+        id: 103,
+        name: "Lenovo ThinkPad E14 Gen 5",
+        price: 18500000,
+        oldPrice: "20.000.000đ",
+        image: "https://via.placeholder.com/300?text=ThinkPad",
+        badge: "Bền bỉ",
+        description: "Bàn phím gõ siêu êm, độ bền đạt chuẩn quân đội, phù hợp cho dân coder."
+    }
+];
 
-// 3. Tìm sản phẩm trong mảng có id khớp với id trên URL
-const product = products.find(function(item) {
+// Danh sách Đồ ăn (ID: 201, 202...)
+const foods = [
+    {
+        id: 201, // ID bắt đầu từ 201 cho đồ ăn
+        name: "Khô Gà Lá Chanh ( Loại 2 )",
+        price: 78000,
+        oldPrice: "1000.000đ",
+        image: "./img/khoga.jpg", 
+        badge: "Bán chạy",
+        description: "Khô gà bã mía MIXIFOOD tuyệt phẩm bã mía chất lượng cao, SIÊU NGON - ĐẬM ĐÀ"
+    },
+];
+
+// =========================================================================
+// 2. XỬ LÝ LOGIC HIỂN THỊ CHI TIẾT
+// =========================================================================
+
+// Bước A: Gộp 3 mảng trên lại thành 1 mảng tổng to đùng tên là allProducts
+const allProducts = products.concat(laptops, foods);
+
+// Bước B: Lấy tham số ID từ thanh địa chỉ URL xuống (Ví dụ: detail.html?id=201)
+const urlParams = new URLSearchParams(window.location.search);
+const productId = parseInt(urlParams.get('id')); 
+
+// Bước C: Tìm kiếm sản phẩm có ID trùng với ID trên URL trong mảng gộp tổng
+const product = allProducts.find(function(item) {
     return item.id === productId;
 });
 
-// 4. In dữ liệu ra giao diện HTML
+// Bước D: Đổ dữ liệu tìm được ra các thẻ HTML của trang detail.html
 if (product) {
-    // Nếu tìm thấy sản phẩm
+    // Nếu tìm thấy món hàng/món ăn khớp ID
     document.getElementById("detailName").innerText = product.name;
     document.getElementById("detailPrice").innerText = product.price.toLocaleString('vi-VN') + "đ";
     document.getElementById("detailOldPrice").innerText = product.oldPrice;
     document.getElementById("detailImage").src = product.image;
     document.getElementById("detailDesc").innerText = product.description;
 } else {
-    // Nếu ID trên URL bị sai hoặc không tồn tại
+    // Nếu gõ bừa ID không tồn tại trên URL
     document.getElementById("productDetailContent").innerHTML = `
         <div class="col-12 text-center text-danger mt-5">
-            <h3>Không tìm thấy sản phẩm!</h3>
+            <h3>Không tìm thấy thông tin sản phẩm này!</h3>
             <a href="index.html" class="btn btn-outline-danger mt-3">Quay lại trang chủ</a>
         </div>
     `;
