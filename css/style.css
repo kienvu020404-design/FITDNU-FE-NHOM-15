@@ -1,0 +1,20 @@
+/* css/style.css */
+body {
+    background-color: #f4f6f8; /* Màu nền xám nhạt giúp card sản phẩm nổi bật */
+}
+
+/* Hiệu ứng Hover cho sản phẩm giống đề bài yêu cầu */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Nổi lên trên */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Chỉnh lại màu nút Danger của Bootstrap cho giống màu đỏ của dienthoaiviet */
+.btn-danger, .bg-danger {
+    background-color: #e50000 !important;
+    border-color: #e50000 !important;
+}
