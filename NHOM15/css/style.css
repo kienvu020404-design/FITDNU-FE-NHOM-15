@@ -26,3 +26,95 @@ body {
     object-fit: contain; /* Ép ảnh vừa vặn khung, không bị méo */
     padding: 15px; /* Tạo khoảng lùi vào cho ảnh đỡ sát viền */
 }
+/* =========================================
+   LÀM MỊN GIAO DIỆN (UI/UX TWEAKS)
+   ========================================= */
+
+/* 1. Làm mịn thẻ sản phẩm */
+.product-card {
+    border-radius: 12px; /* Bo tròn các góc của thẻ mềm mại hơn */
+    overflow: hidden;
+    transition: all 0.3s ease; /* Làm mượt mọi sự thay đổi trong 0.3 giây */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important; /* Bóng đổ mặc định rất nhạt */
+}
+
+/* Hiệu ứng nhấc bổng thẻ khi di chuột vào */
+.product-card:hover {
+    transform: translateY(-8px); /* Nổi lên trên 8px */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important; /* Bóng đổ tỏa rộng và đậm hơn một chút */
+}
+
+/* 2. Làm mịn ảnh bên trong thẻ */
+.product-card .card-img-top {
+    transition: transform 0.4s ease; /* Hiệu ứng mượt cho ảnh */
+}
+
+/* Phóng to ảnh lên một chút xíu (zoom in) khi di chuột vào thẻ */
+.product-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* 3. Làm mịn tất cả các nút bấm */
+.btn {
+    border-radius: 8px; /* Bo góc nút bấm */
+    transition: all 0.2s ease-in-out; 
+}
+
+/* Khi bấm hoặc di chuột, nút có cảm giác đàn hồi nhẹ */
+.btn:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 5px 15px rgba(229, 0, 0, 0.3); /* Ánh sáng đỏ tỏa ra quanh nút */
+}
+.btn:active {
+    transform: scale(0.97); /* Nút lún xuống khi click */
+}
+/* =========================================
+   BANNER MINI - HIỆU ỨNG GAUSSIAN BLUR
+   ========================================= */
+
+/* Làm mịn và bo góc toàn bộ khối banner */
+.banner-mini {
+    border-radius: 16px !important; /* Bo góc tròn thật đẹp */
+    overflow: hidden;               /* Cắt đi các phần mờ bị tràn ra ngoài */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Đổ bóng nhẹ cho banner nổi lên */
+}
+
+/* Ép chiều cao dẹt lại cho gọn gàng */
+.banner-content {
+    position: relative;
+    min-height: 160px; /* Chiều cao cực kỳ thanh mảnh */
+    overflow: hidden;
+}
+
+/* Lớp 1: Ảnh nền phía sau bị làm mờ (Gaussian Blur) */
+.banner-blur-bg {
+    position: absolute;
+    /* Phóng to nền ra một chút (-15px) để viền mờ không bị lem màu trắng */
+    top: -15px; right: -15px; bottom: -15px; left: -15px; 
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px); /* Đây chính là dòng tạo ra hiệu ứng Gaussian Blur */
+    z-index: 0;
+}
+
+/* Lớp 2: Lớp phủ màu đỏ/đen trong suốt để chữ nổi bật lên trên nền mờ */
+/* Lớp 2: Lớp phủ màu đen nhạt để chữ trắng nổi bật lên trên nền mờ */
+.banner-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Đổi từ màu đỏ rgba(220, 53, 69, 0.7) sang màu đen mờ 40% */
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+/* Lớp 3: Nội dung chữ và nút bấm */
+.content-wrapper {
+    z-index: 2; /* Đẩy nội dung lên lớp cao nhất để không bị mờ */
+    position: relative;
+}
+
+/* Làm cho nút bấm nhỏ gọn lại cho phù hợp với banner dẹt */
+.btn-xs {
+    padding: 0.35rem 1.5rem;
+    font-size: 0.85rem;
+}
