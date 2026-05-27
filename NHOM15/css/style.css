@@ -118,3 +118,108 @@ body {
     padding: 0.35rem 1.5rem;
     font-size: 0.85rem;
 }
+
+/* =========================================
+   SIDE BANNERS (LEFT & RIGHT)
+   ========================================= */
+.side-banner {
+    position: absolute;
+    top: 150px;
+    width: 140px;
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none; /* Ẩn mặc định trên màn hình nhỏ */
+}
+
+/* Chỉ hiển thị banner 2 bên trên màn hình rất lớn (desktop) để không đè vào nội dung */
+@media (min-width: 1400px) {
+    .side-banner {
+        display: block;
+    }
+}
+
+.side-banner-left {
+    left: max(30px, calc(50% - 820px));
+}
+
+.side-banner-right {
+    right: max(30px, calc(50% - 820px));
+}
+
+.side-banner-bg {
+    position: absolute;
+    top: -15px; left: -15px; right: -15px; bottom: -15px; /* Mở rộng ra để viền blur không bị lỗi */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Gaussian Blur */
+    z-index: 0;
+}
+
+.side-banner-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+}
+
+/* Màu phủ cho từng bên */
+.side-banner-left .side-banner-overlay {
+    background: rgba(229, 0, 0, 0.45); /* Phủ đỏ cho Điện thoại */
+}
+
+.side-banner-right .side-banner-overlay {
+    background: rgba(0, 0, 0, 0.55); /* Phủ đen cho Laptop */
+}
+
+.side-banner-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    color: white;
+    text-align: center;
+}
+
+.side-banner-badge {
+    background: #ffc107;
+    color: #000;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    animation: pulse 1.5s infinite; /* Hiệu ứng đập nhẹ */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.side-banner-title {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    margin: 15px 0;
+}
+
+.side-banner-img {
+    width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    background: white;
+    padding: 5px;
+    object-fit: contain;
+}
