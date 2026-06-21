@@ -123,11 +123,11 @@ body {
    SIDE BANNERS (LEFT & RIGHT)
    ========================================= */
 .side-banner {
-    position: absolute;
-    top: 150px;
-    width: 140px;
-    height: 600px;
-    border-radius: 12px;
+    position: fixed;
+    top: 220px;
+    width: 110px;
+    height: 480px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     z-index: 1000;
@@ -142,11 +142,11 @@ body {
 }
 
 .side-banner-left {
-    left: max(30px, calc(50% - 820px));
+    left: 16px;
 }
 
 .side-banner-right {
-    right: max(30px, calc(50% - 820px));
+    right: 16px;
 }
 
 .side-banner-bg {
@@ -181,7 +181,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10px;
+    padding: 16px 8px;
     color: white;
     text-align: center;
 }
@@ -208,18 +208,18 @@ body {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     transform: rotate(180deg);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 900;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
     margin: 15px 0;
 }
 
 .side-banner-img {
-    width: 90%;
+    width: 80%;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
     background: white;
-    padding: 5px;
+    padding: 4px;
     object-fit: contain;
 }
