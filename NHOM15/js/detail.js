@@ -21,10 +21,13 @@ async function fetchAndRenderDetail() {
         // Đổ dữ liệu ra các thẻ HTML của trang detail.html
         document.getElementById("detailName").innerText = product.name;
         document.getElementById("detailPrice").innerText = Number(product.price).toLocaleString('vi-VN') + "đ";
-        document.getElementById("detailOldPrice").innerText = product.oldPrice || "";
+        document.getElementById("detailOldPrice").innerText = product.oldPrice ? formatVND(product.oldPrice) : "";
         document.getElementById("detailImage").src = product.image;
         document.getElementById("detailDesc").innerText = product.description || "Chưa có mô tả cho sản phẩm này.";
-        
+        const content = document.getElementById("productDetailContent");
+        if (content) {
+            requestAnimationFrame(() => content.classList.add("visible"));
+        }
     } catch (error) {
         console.error("Lỗi khi tải chi tiết sản phẩm:", error);
         showNotFound();
@@ -34,6 +37,7 @@ async function fetchAndRenderDetail() {
 function showNotFound() {
     const container = document.getElementById("productDetailContent");
     if (container) {
+        container.classList.add("visible");
         container.innerHTML = `
             <div class="col-12 text-center text-danger mt-5">
                 <h3>Không tìm thấy thông tin sản phẩm này!</h3>
