@@ -111,8 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchProducts();
 
     const inputPrice = document.getElementById("inputPrice");
+    const inputOldPrice = document.getElementById("inputOldPrice");
     if (inputPrice) {
         inputPrice.addEventListener("input", function () {
+            this.value = formatVNDInput(this.value);
+        });
+    }
+    if (inputOldPrice) {
+        inputOldPrice.addEventListener("input", function () {
             this.value = formatVNDInput(this.value);
         });
     }
@@ -133,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const newProduct = {
                 name: name,
                 price: parsedPrice,
-                oldPrice: document.getElementById("inputOldPrice").value.trim(),
+                oldPrice: parsePriceValue(document.getElementById("inputOldPrice").value),
                 image: document.getElementById("inputImage").value.trim() || 'https://via.placeholder.com/150',
                 badge: document.getElementById("inputBadge").value.trim(),
                 description: document.getElementById("inputDesc").value.trim(),
