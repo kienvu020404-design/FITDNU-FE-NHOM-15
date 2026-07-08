@@ -1,6 +1,7 @@
 /* css/style.css */
 body {
     background-color: #f4f6f8; /* Màu nền xám nhạt giúp card sản phẩm nổi bật */
+    font-family: 'MiSans', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
 }
 
 /* Hiệu ứng Hover cho sản phẩm giống đề bài yêu cầu */
