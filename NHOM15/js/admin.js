@@ -36,6 +36,7 @@ function renderAdminTable(products) {
         else if (product.type === 'laptop') typeBadgeClass = 'bg-dark';
         else if (product.type === 'food') typeBadgeClass = 'bg-success';
         
+        tr.classList.add('admin-product-row');
         tr.innerHTML = `
             <td class="fw-bold text-muted">${product.id}</td>
             <td>
