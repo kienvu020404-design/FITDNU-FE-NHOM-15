@@ -1,5 +1,15 @@
 const API_URL = "https://69fae82e88a7af0ecca7ea14.mockapi.io/api/v1/products";
 
+function formatVNDInput(value) {
+    const digits = String(value).replace(/\D/g, "");
+    if (!digits) return "";
+    return Number(digits).toLocaleString('vi-VN');
+}
+
+function parsePriceValue(value) {
+    return Number(String(value).replace(/\D/g, "")) || 0;
+}
+
 // 1. LẤY DỮ LIỆU TỪ API VÀ HIỂN THỊ
 async function fetchProducts() {
     try {
@@ -99,6 +109,13 @@ async function deleteProduct(id) {
 document.addEventListener("DOMContentLoaded", () => {
     // Tải danh sách sản phẩm ban đầu
     fetchProducts();
+
+    const inputPrice = document.getElementById("inputPrice");
+    if (inputPrice) {
+        inputPrice.addEventListener("input", function () {
+            this.value = formatVNDInput(this.value);
+        });
+    }
     
     // Gắn sự kiện submit form thêm mới (nút btnSave)
     const btnSave = document.getElementById("btnSave");
@@ -106,15 +123,16 @@ document.addEventListener("DOMContentLoaded", () => {
         btnSave.addEventListener("click", function() {
             const name = document.getElementById("inputName").value.trim();
             const price = document.getElementById("inputPrice").value;
+            const parsedPrice = parsePriceValue(price);
             
-            if (!name || !price) {
+            if (!name || !parsedPrice) {
                 alert("Vui lòng nhập tên và giá bán sản phẩm!");
                 return;
             }
 
             const newProduct = {
                 name: name,
-                price: Number(price),
+                price: parsedPrice,
                 oldPrice: document.getElementById("inputOldPrice").value.trim(),
                 image: document.getElementById("inputImage").value.trim() || 'https://via.placeholder.com/150',
                 badge: document.getElementById("inputBadge").value.trim(),
