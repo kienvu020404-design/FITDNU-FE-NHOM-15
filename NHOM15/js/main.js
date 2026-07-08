@@ -56,8 +56,8 @@ function renderCategory(products, containerId) {
         const productHTML = `
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="card h-100 shadow-sm border-0 product-card animate-fade-in-up" style="animation-delay: ${delay}s;">
-                    ${item.badge ? `<span class="badge bg-danger position-absolute" style="top: 10px; right: 10px;">${item.badge}</span>` : ''}
-                    <img src="${item.image}" onerror="this.src='https://via.placeholder.com/300'" class="card-img-top p-3" alt="${item.name}" style="object-fit: contain; height: 200px;">
+                    ${item.badge ? `<span class="badge bg-danger position-absolute" style="top: 8px; right: 8px;">${item.badge}</span>` : ''}
+                    <img src="${item.image}" onerror="this.src='https://via.placeholder.com/300'" class="card-img-top" alt="${item.name}" style="object-fit: contain; height: 170px;">
                     <div class="card-body text-center d-flex flex-column">
                         <h6 class="card-title fw-bold">${item.name}</h6>
                         <div class="mt-auto">

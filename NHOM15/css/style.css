@@ -21,10 +21,31 @@ body {
 /* Mở file css/style.css và thêm đoạn này xuống dưới cùng */
 
 .product-card .card-img-top {
-    height: 250px; /* Bạn có thể tăng giảm số này tùy ý (ví dụ 200px, 300px) */
+    height: 180px; /* Giảm nhẹ kích thước ảnh để card gọn và cân đối hơn */
     width: 100%;
     object-fit: contain; /* Ép ảnh vừa vặn khung, không bị méo */
-    padding: 15px; /* Tạo khoảng lùi vào cho ảnh đỡ sát viền */
+    padding: 10px; /* Tạo khoảng lùi vào cho ảnh đỡ sát viền */
+}
+
+.product-card {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.product-card .card-body {
+    padding: 0.8rem 0.8rem 0.9rem;
+}
+
+.product-card .card-title {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    min-height: 2.6em;
+    margin-bottom: 0.35rem;
+}
+
+.product-card .btn {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.8rem;
 }
 /* =========================================
    LÀM MỊN GIAO DIỆN (UI/UX TWEAKS)
@@ -160,12 +181,13 @@ body {
    ========================================= */
 .side-banner {
     position: fixed;
-    top: 220px;
-    width: 110px;
-    height: 480px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 84px;
+    height: 360px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.16);
     z-index: 1000;
     display: none; /* Ẩn mặc định trên màn hình nhỏ */
 }
@@ -178,11 +200,11 @@ body {
 }
 
 .side-banner-left {
-    left: 16px;
+    left: 10px;
 }
 
 .side-banner-right {
-    right: 16px;
+    right: 10px;
 }
 
 .side-banner-bg {
@@ -217,7 +239,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 8px;
+    padding: 10px 6px;
     color: white;
     text-align: center;
 }
@@ -226,9 +248,9 @@ body {
     background: #ffc107;
     color: #000;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 3px 7px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.7rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     text-transform: uppercase;
     animation: pulse 1.5s infinite; /* Hiệu ứng đập nhẹ */
@@ -244,18 +266,18 @@ body {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     transform: rotate(180deg);
-    font-size: 1.1rem;
-    font-weight: 900;
-    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 1px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
-    margin: 15px 0;
+    margin: 8px 0;
 }
 
 .side-banner-img {
-    width: 80%;
+    width: 70%;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.35);
     background: white;
-    padding: 4px;
+    padding: 3px;
     object-fit: contain;
 }
