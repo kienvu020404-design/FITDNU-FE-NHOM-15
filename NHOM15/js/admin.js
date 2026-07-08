@@ -1,8 +1,6 @@
 const API_URL = "https://69fae82e88a7af0ecca7ea14.mockapi.io/api/v1/products";
 
-// ==========================================
 // 1. LẤY DỮ LIỆU TỪ API VÀ HIỂN THỊ
-// ==========================================
 async function fetchProducts() {
     try {
         const response = await fetch(API_URL);
@@ -53,10 +51,7 @@ function renderAdminTable(products) {
         });
     });
 }
-
-// ==========================================
 // 2. THÊM SẢN PHẨM MỚI (POST)
-// ==========================================
 async function addProduct(newProductData) {
     try {
         const btnSave = document.getElementById("btnSave");
@@ -83,9 +78,7 @@ async function addProduct(newProductData) {
     }
 }
 
-// ==========================================
 // 3. XÓA SẢN PHẨM (DELETE)
-// ==========================================
 async function deleteProduct(id) {
     if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?")) {
         try {
@@ -102,10 +95,7 @@ async function deleteProduct(id) {
         }
     }
 }
-
-// ==========================================
 // 4. KHỞI TẠO VÀ GẮN SỰ KIỆN KHI TRANG TẢI XONG
-// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     // Tải danh sách sản phẩm ban đầu
     fetchProducts();
